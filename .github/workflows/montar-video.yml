@@ -1,0 +1,20 @@
+name: Montar Short automáticamente
+
+on:
+  workflow_dispatch:
+
+jobs:
+  montar-video:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Descargar FFmpeg
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+
+      - name: Comprobar FFmpeg
+        run: ffmpeg -version
+
+      - name: Finalizado
+        run: echo "FFmpeg está preparado para montar Shorts"
